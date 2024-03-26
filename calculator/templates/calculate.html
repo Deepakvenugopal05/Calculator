@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .calculator {
+            margin: 50px auto; /* Adjusted margin */
+            width: 600px; /* Adjusted width */
+            border: 1px solid #ccc;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 20px;
+            font-size: 36px;
+        }
+        input[type="button"] {
+            width: 100%;
+            padding: 30px;
+            margin: 20px 0;
+            font-size: 36px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input[type="button"]:hover {
+            background-color: #e0e0e0;
+        }
+    
+        @media only screen and (max-width: 768px) {
+            /* Adjustments for smaller screens */
+            .calculator {
+                margin: 20px auto;
+                width: 90%;
+                padding: 20px;
+            }
+            input[type="text"] {
+                font-size: 24px;
+            }
+            input[type="button"] {
+                padding: 20px;
+                margin: 100px 0;
+                font-size: 24px;
+            }
+        }
+    </style>
+    
+    
+    
+</head>
+<body bgcolor="Deepak raj">
+
+<div class="calculator">
+    <form action="{% url 'calculate' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="expression" value="{{ expression }}" readonly>
+        <br>
+        <input type="submit" name="number" value="1">
+        <input type="submit" name="number" value="2">
+        <input type="submit" name="number" value="3">
+        <input type="submit" name="operator" value="+">
+        <br>
+        <input type="submit" name="number" value="4">
+        <input type="submit" name="number" value="5">
+        <input type="submit" name="number" value="6">
+        <input type="submit" name="operator" value="-">
+        <br>
+        <input type="submit" name="number" value="7">
+        <input type="submit" name="number" value="8">
+        <input type="submit" name="number" value="9">
+        <input type="submit" name="operator" value="*">
+        <br>
+        <input type="submit" name="number" value="0">
+        <input type="submit" name="decimal" value=".">
+        <input type="submit" name="calculate" value="=">
+        <input type="submit" name="operator" value="/">
+        <br>
+        <input type="submit" name="clear" value="C">
+    </form>
+
+</div>
+
+</body>
+</html>
